@@ -1,0 +1,288 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Loading Spinner */
+#loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #ff66b2;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.5s linear, fadeOutAndHide 1s ease 4s forwards;
+    animation-iteration-count: 1; 
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    animation: slideIn 1s ease-out;
+}
+
+.navbar .navbar-brand {
+    font-size: 24px;
+    color: #ff66b2;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 18px;
+    text-shadow: #00bfff;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff66b2;;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    background: linear-gradient(to right, #ff66b2, #00bfff);
+    position: relative;
+    overflow: hidden;
+    animation: backgroundAnimation 10s infinite linear;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://egoamo.co.za/cdn/shop/products/LP2141-BTS-group-blue-Kpop-music-poster-egoamo-posters_1024x1024@2x.jpg?v=1590722518') no-repeat center center/cover; /* Default background image */
+    animation: imageSlider 15s ease infinite; /* Background image animation */
+}
+.hero-content {
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+    animation: slideInFromLeft 1s forwards;
+}
+
+.hero-content h3 {
+    font-weight: bold;
+}
+
+.hero-content h3, .hero-content p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.cta-button {
+    background-color: #ff66b2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.cta-button:hover {
+    background-color: #00bfff;
+    transform: scale(1.1);
+}
+h2{
+    text-align: center;
+    font-size: 90px;
+    font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+}
+/* Products Section */
+.products {
+    background:linear-gradient(to right, #ff66b2, #00bfff);
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+ .product-card {
+    width: 300px; /* Fixed width for product cards */
+    height: 400px; /* Fixed height for product cards */
+    background-color: #fff; /* White background for cards */
+    border: 5px  #f583bc, solid; 
+    border-radius: 10px; /* Rounds corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+    padding: 15px; /* Inner padding */
+    text-align: center; /* Centers text inside the card */
+    transition: transform 0.3s; /* Smooth transformation on hover */
+    perspective: 1000px; /* Provides depth for 3D flip effect */
+    margin: auto; /* Centers each card horizontally */
+
+}
+
+.product-card:hover {
+    transform: scale(1.15); 
+}
+
+.product-card img {
+    max-width: 100%; /* Ensures images fit within card */
+    border-radius: 8px; /* Rounds image corners */
+    max-height: 500px;
+}
+
+.product-card .card-front h4 {
+    font-size: 1.2em; /* Sets font size for product titles */
+    margin: 10px 0; /* Adds vertical margin */
+    ;
+}
+
+/* Button Styling */
+.product-card button {
+    background-color: linear-gradient(to right, #ff66b2, #00bfff);
+    color: white; /* White text color */
+    padding: 10px 20px; /* Padding inside button */
+    border: 2px solid black;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color change on hover */
+}
+
+.product-card button:hover {
+    background-color: #00bfff; /* Changes background color on hover */
+}
+
+/* Flip Card Inner Structure */
+.card-inner {
+    position: relative; /* Allows absolute positioning of children */
+    width: 100%; 
+    height: 100%;
+    transition: transform 0.6s; /* Smooth rotation */
+    transform-style: preserve-3d; 
+}
+
+.product-card:hover .card-inner {
+    transform: rotateY(180deg); 
+    /* Flips card on hover */
+}
+
+.card-front, .card-back {
+    position: absolute; 
+    width: 100%; 
+    /* Full width */
+    height: 700px; 
+    /* Height adjusts to content */
+    backface-visibility: hidden; 
+    /* Hides the back when facing front */
+    border-radius: 10px; 
+    /* Rounds corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+    padding: 15px; 
+    /* Inner padding */
+    text-align: center; 
+    /* Centers text */
+}
+
+.card-front {
+    background-color: #dbdbdb; /* Light gray background for front */
+    color: black; /* Black text color */
+    height: 50px; /* Fixed height for the front side */
+    margin: auto;
+}
+
+.card-back {
+    
+    position: relative;
+    background-color: #f08dbe; /* Light green background for back */
+    color: #00bfff ; /* White text color */
+    transform: rotateY(180deg); /* Rotates back side to hide it initially */
+    display: flex; /* Use Flexbox to center content */
+    align-items: center; /* Center vertically */
+     /* Center horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    padding:15px ;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 300px; 
+}
+
+/* Animations */
+@keyframes slideIn {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOutAndHide {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes slideInFromBottom {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+
+@keyframes imageSlider {
+    0% {
+        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a510ffb8-bae4-41df-8307-b239226c9a54/dfyp61z-20ae4707-461a-41b8-beb8-cbdbbdfff1f7.png/v1/fit/w_750,h_422,q_70,strp/kpop_wallpaper__by_i1o2t_dfyp61z-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvYTUxMGZmYjgtYmFlNC00MWRmLTgzMDctYjIzOTIyNmM5YTU0XC9kZnlwNjF6LTIwYWU0NzA3LTQ2MWEtNDFiOC1iZWI4LWNiZGJiZGZmZjFmNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.1HiVUpj1qDfutHaYovi9q8PHpHzf3EMuXcF2g_NeTFw');
+    }
+    25% {
+        background-image: url('https://wallpapers.com/images/featured-full/kpop-background-05255yg6heaaqm5w.jpg');
+    }
+    50% {
+        background-image: url('https://wallpapercave.com/wp/wp12104592.jpg');
+    }
+    75% {
+        background-image: url('https://wallpapers.com/images/high/kpop-bts-young-forever-q7yuf99g9j604p3z.webp');
+    }
+    100% {
+        background-image: url('https://wallpapers.com/images/high/k-pop-boy-group-infinite-poster-zo8zhzue9fn77nb4.webp');
+    }
+}
