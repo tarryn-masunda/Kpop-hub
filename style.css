@@ -80,7 +80,7 @@
     animation: slideInFromLeft 1s forwards;
 }
 
-.hero-content h3 {
+.hero-content h2 {
     font-weight: bold;
 }
 
@@ -102,16 +102,17 @@
 }
 
 .cta-button:hover {
-    background-color: #00bfff;
-    transform: scale(1.1);
+    background-color: hsl(195, 100%, 50%);
+    transform: scale(5.1);
 }
+
 h2{
     text-align: center;
     font-size: 90px;
     font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
 }
 /* Products Section */
-.products {
+.products .artist {
     background:linear-gradient(to right, #ff66b2, #00bfff);
     display: flex;
     gap: 20px;
@@ -131,7 +132,7 @@ h2{
     width: 300px; /* Fixed width for product cards */
     height: 400px; /* Fixed height for product cards */
     background-color: #fff; /* White background for cards */
-    border: 5px  #f583bc, solid; 
+    border: 2px  #f583bc, solid; 
     border-radius: 10px; /* Rounds corners */
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
     padding: 15px; /* Inner padding */
@@ -153,33 +154,40 @@ h2{
 }
 
 .product-card .card-front h4 {
-    font-size: 1.2em; /* Sets font size for product titles */
-    margin: 10px 0; /* Adds vertical margin */
-    ;
+    font-size: 20px; /* Sets font size for product titles */
+    margin: 1px 0; /* Adds vertical margin */
+    
+}
+
+.product-card .card-back h4 {
+    font-size: 20px; /* Sets font size for product titles */
+    margin: 1px 0; /* Adds vertical margin */
+    
 }
 
 /* Button Styling */
-.product-card button {
-    background-color: linear-gradient(to right, #ff66b2, #00bfff);
-    color: white; /* White text color */
+.product-card input {
+    background: linear-gradient(to right,  #00bfff, #ff66b2);
+    color: rgb(0, 0, 0); /* White text color */
     padding: 10px 20px; /* Padding inside button */
     border: 2px solid black;
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 8px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth background color change on hover */
+    font-size: 15px;
 }
 
-.product-card button:hover {
+.product-card input:hover {
     background-color: #00bfff; /* Changes background color on hover */
 }
 
 /* Flip Card Inner Structure */
 .card-inner {
-    position: relative; /* Allows absolute positioning of children */
-    width: 100%; 
+    position: relative; 
     height: 100%;
     transition: transform 0.6s; /* Smooth rotation */
-    transform-style: preserve-3d; 
+    transform-style: preserve-3d;
+    /* padding: 30px; */
 }
 
 .product-card:hover .card-inner {
@@ -191,7 +199,7 @@ h2{
     position: absolute; 
     width: 100%; 
     /* Full width */
-    height: 700px; 
+    height: 300px; 
     /* Height adjusts to content */
     backface-visibility: hidden; 
     /* Hides the back when facing front */
@@ -202,20 +210,22 @@ h2{
     /* Inner padding */
     text-align: center; 
     /* Centers text */
+    font-size: 20px;
 }
 
 .card-front {
-    background-color: #dbdbdb; /* Light gray background for front */
+    background-color: #91d9f1; /* Light gray background for front */
     color: black; /* Black text color */
-    height: 50px; /* Fixed height for the front side */
+    height: 350px; /* Fixed height for the front side */
     margin: auto;
+    
 }
 
 .card-back {
     
     position: relative;
-    background-color: #f08dbe; /* Light green background for back */
-    color: #00bfff ; /* White text color */
+    background-color: #ffbdde; /* Light green background for back */
+    color: #000000 ; 
     transform: rotateY(180deg); /* Rotates back side to hide it initially */
     display: flex; /* Use Flexbox to center content */
     align-items: center; /* Center vertically */
@@ -225,7 +235,7 @@ h2{
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 300px; 
+    height: 350px; 
 }
 
 /* Animations */
