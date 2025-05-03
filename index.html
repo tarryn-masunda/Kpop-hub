@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>K-pop Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #181818;
+      color: #e0e0e0;
+      font-family: sans-serif;
+      margin: 0;
+      padding-top: 60px; /* Adjust for fixed header */
+    }
+
+    header {
+      background-color: #212121;
+      color: #fff;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #fff;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #fff;
+    }
+
+    .hero {
+      background-color: #212121;
+      padding: 80px 20px;
+      text-align: center;
+      margin-top: 60px; /* Adjust for fixed header */
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content h3 {
+      font-size: 1.5rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #9e9e9e;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: #e53935;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #b71c1c;
+    }
+
+    #loading-spinner {
+      /* Style your loading spinner here */
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .homepage-section {
+      padding: 20px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #333;
+    }
+
+    .homepage-section h3 {
+      color: #fff;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #e53935;
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+
+    .card-container {
+      display: flex;
+      overflow-x: auto;
+      padding-bottom: 15px;
+    }
+
+    .card {
+      background-color: #212121;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 8px;
+      margin-right: 15px;
+      width: 200px; /* Adjust as needed */
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      display: block;
+      height: auto; /* Maintain aspect ratio */
+      object-fit: cover; /* Ensure image covers the area */
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      white-space: nowrap; /* Prevent text wrapping */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-text {
+      font-size: 0.8rem;
+      color: #9e9e9e;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">K-POP HUB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="products.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Latest News</a></li>
+            <li class="nav-item"><a class="nav-link" href="Artists.html">Artists</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Videos</a></li>
+                <li><a class="dropdown-item" href="#">Fan Zone</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <section class="hero">
+      <div class="hero-content">
+          <h1>K-POP HUB</h1>
+          <h3>Welcome to the K-pop Hub!</h3>
+          <p>Stay updated with the latest news, music videos, and idol activities!</p>
+          <button class="cta-button">Shop now</button>
+      </div>
+  </section>
+
+  <div id="loading-spinner">Loading...</div>
+
+  <main>
+    <section id="featured-artists" class="homepage-section">
+      <h3>Featured Artists</h3>
+      <div class="card-container" id="artistCards">
+        </div>
+    </section>
+
+    <section id="latest-videos" class="homepage-section">
+      <h3>Latest Videos</h3>
+      <div class="card-container" id="videoCards">
+        </div>
+    </section>
+
+    <section id="latest-news" class="homepage-section">
+      <h3>Latest News</h3>
+      <div class="card-container" id="newsCards">
+        </div>
+    </section>
+
+    <section id="featured-products" class="homepage-section">
+      <h3>Shop K-pop Merch</h3>
+      <div class="card-container" id="productCards">
+        </div>
+    </section>
+  </main>
+    <!-- Back to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="btn btn-secondary back-to-top">↑ Top</button>
+
+  <footer>
+    <p>&copy; 2025 K-pop Hub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Sample data for demonstration (replace with your actual data fetching in script.js)
+    const artists = [
+      { name: "Artist 1", image: "https://via.placeholder.com/200/FFC107/000000?Text=Artist+1" },
+      { name: "Artist 2", image: "https://via.placeholder.com/200/9C27B0/FFFFFF?Text=Artist+2" },
+      { name: "Artist 3", image: "https://via.placeholder.com/200/2196F3/FFFFFF?Text=Artist+3" },
+      { name: "Artist 4", image: "https://via.placeholder.com/200/4CAF50/FFFFFF?Text=Artist+4" },
+      { name: "Artist 5", image: "https://via.placeholder.com/200/FF9800/FFFFFF?Text=Artist+5" },
+      // Add more artists
+    ];
+
+    const videos = [
+      { title: "Video 1", image: "https://via.placeholder.com/200/F44336/FFFFFF?Text=Video+1" },
+      { title: "Video 2", image: "https://via.placeholder.com/200/00BCD4/FFFFFF?Text=Video+2" },
+      { title: "Video 3", image: "https://via.placeholder.com/200/673AB7/FFFFFF?Text=Video+3" },
+      // Add more videos
+    ];
+
+    const news = [
+      { headline: "News 1", image: "https://via.placeholder.com/200/795548/FFFFFF?Text=News+1" },
+      { headline: "News 2", image: "https://via.placeholder.com/200/3F51B5/FFFFFF?Text=News+2" },
+      // Add more news
+    ];
+
+    const products = [
+      { name: "Product 1", image: "https://via.placeholder.com/200/E91E63/FFFFFF?Text=Product+1" },
+      { name: "Product 2", image: "https://via.placeholder.com/200/009688/FFFFFF?Text=Product+2" },
+      // Add more products
+    ];
+
+    function displayCards(data, containerId, type) {
+      const container = document.getElementById(containerId);
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        let imageElement = `<img src="${item.image}" alt="${type === 'artist' ? item.name : type === 'video' ? item.title : type === 'news' ? item.headline : item.name}">`;
+        let bodyContent = '';
+        if (type === 'artist') {
+          bodyContent = `<div class="card-body"><h5 class="card-title">${item.name}</h5></div>`;
+        } else if (type === 'video') {
+          bodyContent = `<div class="card-body"><h6 class="card-title">${item.title}</h6></div>`;
+        } else if (type === 'news') {
+          bodyContent = `<div class="card-body"><h6 class="card-title">${item.headline}</h6></div>`;
+        } else if (type === 'product') {
+          bodyContent = `<div class="card-body"><h6 class="card-title">${item.name}</h6></div>`;
+        }
+        card.innerHTML = imageElement + bodyContent;
+        container.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      displayCards(artists, 'artistCards', 'artist');
+      displayCards(videos, 'videoCards', 'video');
+      displayCards(news, 'newsCards', 'news');
+      displayCards(products, 'productCards', 'product');
+      document.getElementById('loading-spinner').style.display = 'none'; // Hide spinner after loading
+    });
+  </script>
+</body>
+</html>

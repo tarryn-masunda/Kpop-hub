@@ -5,23 +5,17 @@
     box-sizing: border-box;
 }
 
-/* Loading Spinner */
-#loading-spinner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 60px;
-    height: 60px;
-    border: 5px solid #ff66b2;
-    border-top: 5px solid transparent;
-    border-radius: 50%;
-    animation: spin 1.5s linear, fadeOutAndHide 1s ease 4s forwards;
-    animation-iteration-count: 1; 
-    opacity: 0; 
-    pointer-events: none; 
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
-/* Navbar Styling */
+h2 {
+    text-align: center;
+    font-size: 90px;
+    font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+}
 .navbar {
     background: rgba(0, 0, 0, 0.8);
     color: white;
@@ -44,10 +38,8 @@
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ff66b2;;
+    color: #ff66b2;
 }
-
-/* Hero Section */
 .hero {
     display: flex;
     align-items: center;
@@ -66,9 +58,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('https://egoamo.co.za/cdn/shop/products/LP2141-BTS-group-blue-Kpop-music-poster-egoamo-posters_1024x1024@2x.jpg?v=1590722518') no-repeat center center/cover; /* Default background image */
-    animation: imageSlider 15s ease infinite; /* Background image animation */
+    background: url('https://egoamo.co.za/...') no-repeat center center/cover;
+    animation: imageSlider 15s ease infinite;
 }
+
 .hero-content {
     text-align: center;
     color: #fff;
@@ -105,15 +98,85 @@
     background-color: hsl(195, 100%, 50%);
     transform: scale(5.1);
 }
-
-h2{
-    text-align: center;
-    font-size: 90px;
-    font-family: 'Impact', 'Arial Narrow Bold', sans-serif;
+.alphabet-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-/* Products Section */
+
+.alphabet-filter button {
+    border: none;
+    background-color: #e0e0e0;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.alphabet-filter button:hover {
+    background-color: #bdbdbd;
+}
+
+.alphabet-letter {
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+    background-color: white;
+    color: black;
+}
+
+.alphabet-letter:hover,
+.alphabet-letter.active {
+    background: linear-gradient(to right, #ff66b2, #ff99cc);
+    color: pink;
+    border-color: #ff66b2;
+}
+.artists {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.artist-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.artist-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 150px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.artist-card.visible {
+    display: block;
+}
+
+.artist-card:hover {
+    transform: scale(1.05);
+}
+
+.artist-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 .products .artist {
-    background:linear-gradient(to right, #ff66b2, #00bfff);
+    background: linear-gradient(to right, #ff66b2, #00bfff);
     display: flex;
     gap: 20px;
     padding: 20px;
@@ -122,123 +185,121 @@ h2{
     animation: fadeIn 1s ease-in-out;
 }
 
+.product-card {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 2px #f583bc solid;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+    perspective: 1000px;
+    margin: auto;
+}
 
 .product-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
- .product-card {
-    width: 300px; /* Fixed width for product cards */
-    height: 400px; /* Fixed height for product cards */
-    background-color: #fff; /* White background for cards */
-    border: 2px  #f583bc, solid; 
-    border-radius: 10px; /* Rounds corners */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
-    padding: 15px; /* Inner padding */
-    text-align: center; /* Centers text inside the card */
-    transition: transform 0.3s; /* Smooth transformation on hover */
-    perspective: 1000px; /* Provides depth for 3D flip effect */
-    margin: auto; /* Centers each card horizontally */
-
-}
-
-.product-card:hover {
-    transform: scale(1.15); 
-}
-
 .product-card img {
-    max-width: 100%; /* Ensures images fit within card */
-    border-radius: 8px; /* Rounds image corners */
+    max-width: 100%;
     max-height: 500px;
+    border-radius: 8px;
 }
 
-.product-card .card-front h4 {
-    font-size: 20px; /* Sets font size for product titles */
-    margin: 1px 0; /* Adds vertical margin */
-    
-}
-
-.product-card .card-back h4 {
-    font-size: 20px; /* Sets font size for product titles */
-    margin: 1px 0; /* Adds vertical margin */
-    
-}
-
-/* Button Styling */
 .product-card input {
     background: linear-gradient(to right,  #00bfff, #ff66b2);
-    color: rgb(0, 0, 0); /* White text color */
-    padding: 10px 20px; /* Padding inside button */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
     border: 2px solid black;
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth background color change on hover */
+    border-radius: 8px;
+    cursor: pointer;
     font-size: 15px;
+    transition: background-color 0.3s;
 }
 
 .product-card input:hover {
-    background-color: #00bfff; /* Changes background color on hover */
+    background-color: #00bfff;
 }
-
-/* Flip Card Inner Structure */
 .card-inner {
-    position: relative; 
+    position: relative;
     height: 100%;
-    transition: transform 0.6s; /* Smooth rotation */
+    transition: transform 0.6s;
     transform-style: preserve-3d;
-    /* padding: 30px; */
 }
 
 .product-card:hover .card-inner {
-    transform: rotateY(180deg); 
-    /* Flips card on hover */
+    transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
-    position: absolute; 
-    width: 100%; 
-    /* Full width */
-    height: 300px; 
-    /* Height adjusts to content */
-    backface-visibility: hidden; 
-    /* Hides the back when facing front */
-    border-radius: 10px; 
-    /* Rounds corners */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
-    padding: 15px; 
-    /* Inner padding */
-    text-align: center; 
-    /* Centers text */
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
     font-size: 20px;
 }
 
 .card-front {
-    background-color: #91d9f1; /* Light gray background for front */
-    color: black; /* Black text color */
-    height: 350px; /* Fixed height for the front side */
+    background-color: #91d9f1;
+    color: black;
+    height: 350px;
     margin: auto;
-    
 }
 
 .card-back {
-    
-    position: relative;
-    background-color: #ffbdde; /* Light green background for back */
-    color: #000000 ; 
-    transform: rotateY(180deg); /* Rotates back side to hide it initially */
-    display: flex; /* Use Flexbox to center content */
-    align-items: center; /* Center vertically */
-     /* Center horizontally */
-    flex-direction: column; /* Stack elements vertically */
-    padding:15px ;
+    background-color: #ffbdde;
+    color: #000000;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
     border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 350px; 
+    height: 350px;
 }
-
-/* Animations */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+#loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    border: 5px solid #ff66b2;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.5s linear, fadeOutAndHide 1s ease 4s forwards;
+    animation-iteration-count: 1;
+    opacity: 0;
+    pointer-events: none;
+}
+footer {
+    background-color: #212529;
+    color: white;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+    background-color: #212121;
+    color: #9e9e9e;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
 @keyframes slideIn {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(0); }
@@ -281,18 +342,9 @@ h2{
 
 @keyframes imageSlider {
     0% {
-        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a510ffb8-bae4-41df-8307-b239226c9a54/dfyp61z-20ae4707-461a-41b8-beb8-cbdbbdfff1f7.png/v1/fit/w_750,h_422,q_70,strp/kpop_wallpaper__by_i1o2t_dfyp61z-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvYTUxMGZmYjgtYmFlNC00MWRmLTgzMDctYjIzOTIyNmM5YTU0XC9kZnlwNjF6LTIwYWU0NzA3LTQ2MWEtNDFiOC1iZWI4LWNiZGJiZGZmZjFmNy5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.1HiVUpj1qDfutHaYovi9q8PHpHzf3EMuXcF2g_NeTFw');
-    }
-    25% {
-        background-image: url('https://wallpapers.com/images/featured-full/kpop-background-05255yg6heaaqm5w.jpg');
-    }
-    50% {
-        background-image: url('https://wallpapercave.com/wp/wp12104592.jpg');
-    }
-    75% {
-        background-image: url('https://wallpapers.com/images/high/kpop-bts-young-forever-q7yuf99g9j604p3z.webp');
+        background-image: url('https://images-wixmp...jpg');
     }
     100% {
-        background-image: url('https://wallpapers.com/images/high/k-pop-boy-group-infinite-poster-zo8zhzue9fn77nb4.webp');
+        background-image: url('https://egoamo.co.za/...jpg');
     }
 }
